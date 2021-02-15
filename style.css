@@ -1,0 +1,403 @@
+* {padding: 0;margin: 0;box-sizing: border-box}
+
+*::after, *::before {box-sizing: border-box;}
+
+.world {
+  min-width: 100vw;
+  min-height: 100vh;
+  background: #FF69B4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.world main {
+  width: 500px;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.world main::after {
+  content: "";
+  width: 100%;
+  border: 2px solid #333333;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  z-index: 11;
+}
+
+.world main .planet {
+  width: 380px;
+  height: 380px;
+  border-radius: 50%;
+  border: 5px solid #333333;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hand {
+  z-index: 13;
+  background: #6A5ACD;
+  width: 60px;
+  height: 140px;
+  position: absolute;
+  top: 356px;
+  left: 240px;
+  transform: rotate(30deg);
+  border: 5px solid #333333;
+  border-top: 5px solid transparent;
+  border-radius: 25px;
+  box-shadow: inset 0 -10px #483D8B;
+  animation: swim 2s infinite alternate;
+  transform-origin: top;
+}
+
+@keyframes swim {
+  to {
+    transform: rotateZ(20deg);
+  }
+}
+
+.world main .planet .upper {
+  min-width: 380px;
+  height: 190px;
+  border-radius: 185px 185px 0 0;
+  background: #CD1E8A;
+}
+
+.world main .planet .upper .light {
+  width: 300px;
+  height: 300px;
+  border: none;
+  background: #FF1D96;
+  border-radius: 50%;
+  margin-left: 30px;
+  margin-top: -130px;
+  position: relative;
+}
+
+.world main .planet .upper .light::before {
+  content: "";
+  background: #F51D94;
+  border: 1px solid #DA2285;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  bottom: 80px;
+  right: 130px;
+}
+
+.world main .planet .upper .light::after {
+  content: "";
+  background: #F51D94;
+  border: 1px solid #DA2285;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  bottom: 130px;
+  right: 100px;
+}
+.cloud1,.cloud2 {
+  width: 100px;
+  height: 50px;
+  background: #FF00FF;
+  box-shadow: 0 3px 0 #800080;
+  border-radius: 30px 30px 10px 10px;
+  position: absolute;
+}
+.cloud1::before,.cloud2::before{
+  content: "";
+  width: 50px;
+  height: 50px;
+  background: #FF00FF;
+  position: absolute;
+  top: -25px;
+  left: 25px;
+  border-radius: 50%;
+}
+.cloud1{
+  top: 30px;
+  left: 120px;
+  animation: float1 4s  infinite alternate;
+}
+.cloud2{
+  top: 80px;
+  right: 20px;
+  animation: float2 4s  infinite alternate;
+}
+@keyframes float1 {
+  from{transform: translateX(-50px)}
+  to{transform: translateX(50px)}
+}
+@keyframes float2 {
+  from{transform: translateX(50px)}
+  to{transform: translateX(-50px)}
+}
+.star1 {
+  width: 20px;
+  height: 5px;
+  border-radius: 5px;
+  background-color: #800080;
+  position: absolute;
+  top: 140px;
+  left: 2px;
+  animation: twinkle 0.5s 0.2s linear infinite alternate;
+}
+
+.star1::after {
+  content: "";
+  width: 5px;
+  height: 20px;
+  border-radius: 5px;
+  background-color: #800080;
+  position: absolute;
+  top: -7px;
+  left: 7px;
+  animation: twinkle 0.5s 0.2s linear infinite alternate;
+}
+
+.star2 {
+  width: 20px;
+  height: 5px;
+  border-radius: 5px;
+  background-color: #800080;
+  position: absolute;
+  top: 50px;
+  right: 20px;
+  animation: twinkle 0.5s 0.2s linear infinite alternate;
+}
+
+.star2::after {
+  z-index: 13;
+  content: "";
+  width: 5px;
+  height: 20px;
+  border-radius: 5px;
+  background-color: #800080;
+  position: absolute;
+  top: -7px;
+  left: 7px;
+  animation: twinkle 0.5s 0.2s linear infinite alternate;
+}
+
+.star3 {
+  width: 20px;
+  height: 5px;
+  border-radius: 5px;
+  background-color: #800080;
+  position: absolute;
+  top: 30px;
+  right: 210px;
+  animation: twinkle 0.5s 0.2s linear infinite alternate;
+}
+
+.star3::after {
+  z-index: 13;
+  content: "";
+  width: 5px;
+  height: 20px;
+  border-radius: 5px;
+  background-color: #800080;
+  position: absolute;
+  top: -7px;
+  left: 7px;
+  animation: twinkle 0.5s 0.2s linear infinite alternate;
+}
+
+@keyframes twinkle {
+  to {background-color: #FF1493;}
+}
+
+.drip {
+  height: 13px;
+  width: 13px;
+  border-radius: 50%;
+  background-color: purple;
+  position: absolute;
+  top: 200px;
+  right: 110px;
+  animation: spray 3s ease-out infinite;
+}
+
+.drip::before {
+  content: "";
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  background-color: purple;
+  position: absolute;
+  animation: spray 3s 0.3s ease-out infinite;
+}
+
+.drip::after {
+  content: "";
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  background-color: purple;
+  position: absolute;
+  animation: spray 3s 0.7s ease-out infinite;
+}
+
+@keyframes spray {
+  0% {transform: translateY(0);}
+  30% {transform: translateY(-80px);}
+  60% {transform: translateY(0);}
+}
+
+.tail {
+  z-index: 10;
+  position: absolute;
+  left: 60px;
+  top: 180px;
+  width: 70px;
+  height: 100px;
+  border-radius: 35px;
+  border: 3px solid #333333;
+  background: #483D8B;
+  transform: rotate(-5deg);
+}
+
+.left {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-color: darkslateblue;
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  border: 1px solid #333;
+  z-index: 1;
+}
+
+.right {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-color: darkslateblue;
+  position: absolute;
+  top: -20px;
+  left: 20px;
+  border: 1px solid #333;
+  z-index: 1;
+}
+
+.left::before {
+  content: "";
+  width: 80px;
+  height: 80px;
+  border-bottom: 60px solid darkslateblue;
+  border-radius: 0 0 0 100%;
+  position: absolute;
+  top: -18px;
+  left: -35px;
+  animation: wagging1 2s infinite alternate linear;
+  transform-origin: right;
+}
+
+.right::before {
+  content: "";
+  width: 80px;
+  height: 80px;
+  border-bottom: 60px solid darkslateblue;
+  border-radius: 0 0 100% 0;
+  position: absolute;
+  top: -14px;
+  left: 18px;
+  animation: wagging2 2s infinite alternate linear;
+  transform-origin: left;
+}
+
+@keyframes wagging1 {
+  to {transform: rotateZ(-5deg);}
+}
+
+@keyframes wagging2 {
+  to {transform: rotateZ(5deg);}
+}
+
+
+.world main .planet .nether {
+  z-index: 12;
+  position: absolute;
+  bottom: -1px;
+  width: 380px;
+  height: 190px;
+  background: #6A5ACD;
+  border-radius: 0 0 185px 185px;
+  min-height: 190px;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  box-shadow: inset 0 -15px #483D8B;
+}
+
+
+.world main .planet .nether .eye {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #333333;
+  border: 1px solid #333333;
+  position: absolute;
+  right: 120px;
+  bottom: 140px;
+  animation: blink 2s infinite;
+}
+
+@keyframes blink {
+  0% {transform: scaleY(0.1);}
+  5% {transform: scaleY(0.1);}
+  5.1% {transform: scaleY(1);}
+}
+
+.world main .planet .nether .mouth {
+  width: 100px;
+  height: 100px;
+  background: #B0C4D2;
+  border: 4px solid #343434;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 25px;
+  right: -20px;
+  overflow: hidden;
+}
+
+.world main .planet .nether .mouth .tooth {
+  border: 6px solid #343434;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-left: -60px;
+  margin-top: -35px;
+}
+
+.world main .planet .nether .mouth .tooth::after, .tooth::before {
+  content: "";
+  position: absolute;
+  border: 6px solid #343434;
+  border-radius: 50%;
+}
+
+.world main .planet .nether .mouth .tooth::after {
+  bottom: 35px;
+  width: 80px;
+  height: 80px;
+}
+
+.world main .planet .nether .mouth .tooth::before {
+  bottom: 10px;
+  right: 40px;
+  width: 120px;
+  height: 120px;
+}
+
